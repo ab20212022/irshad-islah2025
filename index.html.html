@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المكتب البلدي بالمليليحة - جمعية الإرشاد و الإصلاح </title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2E7D32;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-left: 15px;
+        }
+        
+        .logo-text {
+            line-height: 1.2;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .nav-links i {
+            margin-left: 5px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #3e8e41;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-right: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Main Content */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #2E7D32;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #4CAF50;
+            margin: 0.5rem auto 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: #2E7D32;
+            margin-bottom: 1rem;
+        }
+        
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .news-card h3 {
+            margin-bottom: 1rem;
+            color: #2E7D32;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            color: #2E7D32;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin-left: 1rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .contact-text a:hover {
+            color: #4CAF50;
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1B5E20;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: #4CAF50;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #eee;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #4CAF50;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #4CAF50;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="../جمعية الإصلاح/img/99425953_548144316061286_9162714935287873536_n-removebg-preview.png" alt="شعار المكتب البلدي">
+                    <div class="logo-text">
+                        <h1>المكتب البلدي بالمليليحة</h1>
+                        <p>جمعية الإرشاد و الإصلاح </p>
+                    </div>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> عن المكتب</a></li>
+                    <li><a href="#services"><i class="fas fa-hand-holding-heart"></i> خدماتنا</a></li>
+                    <li><a href="#news"><i class="fas fa-newspaper"></i> أخبار ونشاطات</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>المكتب البلدي بالمليليحة</h2>
+            <p>نحو مجتمع واعٍ ومتكافل تحت مظلة جمعية الإرشاد  و الإصلاح </p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-outline">استكشف خدماتنا</a>
+                <a href="#contact" class="btn">تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">عن المكتب البلدي</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>المكتب البلدي بالمليليحة هو أحد المكاتب التابعة لجمعية الإرشاد و الإصلاح،     ويقدم المكتب العديد من الخدمات الاجتماعية  والإرشادية لأهالي منطقة المليليحة والمناطق المجاورة.</p>
+                    
+                    <p>يهدف المكتب إلى تحقيق رسالة الجمعية في الإصلاح والتآخي بين الأفراد والمساهمة في عملية الخير  وأيضا نشر الوعي الديني والثقافي، والعمل على تماسك المجتمع وتنميته في جميع المجالات.</p>
+                    
+                    <p>يعمل المكتب تحت إشراف فرع الجمعية بولاية الجلفة دائرة دار الشيوخ، ويشرف عليه مجموعة من الشباب المخلصين الذين يسعون لخدمة البلاد    .</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn">المزيد عن الجمعية</a>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="../جمعية الإصلاح/img/99425953_548144316061286_9162714935287873536_n-removebg-preview.png" alt="صورة عن المكتب البلدي">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">خدمات المكتب</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <h3>الدروس والمحاضرات</h3>
+                    <p>إقامة الدروس الدينية والمحاضرات التوعوية في المساجد والمراكز التابعة للمكتب</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>الإصلاح بين الناس</h3>
+                    <p>حل النزاعات والخلافات بين الأفراد والأسر وفق الضوابط الشرعية</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>دورات تحفيظ القرآن</h3>
+                    <p>تنظيم حلقات لتحفيظ القرآن الكريم لكافة الفئات العمرية</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>برامج الشباب</h3>
+                    <p>إقامة البرامج التربوية والترفيهية الهادفة لشغل أوقات الشباب</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>الخدمات الاجتماعية</h3>
+                    <p>تقديم المساعدات العينية والنقدية للأسر المحتاجة في المنطقة</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>برامج نسائية</h3>
+                    <p>تنظيم المحاضرات والدورات الخاصة بالنساء في المراكز النسائية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section" id="news">
+        <div class="container">
+            <h2 class="section-title">أخبار ونشاطات</h2>
+            
+            <div class="news-grid">
+               
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="../جمعية الإصلاح/img/فقرات_حفل_تكريم.jpg" alt="نشاط المكتب">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">30 مارس 2025</div>
+                        <h3> المكتب البلدي يقوم بتكريم القائمين على المساجد ببلدية المليليحة</h3>
+                        <p>قام اليوم 30/03/2025مكتبنا   بتكريم  القائمين على الصلوات الخمس وأيضا صلاة التروايح وكل العمال المتطوعين في سبيل الله في كلا المسجدين خالد بن الوليد والمسجد العتيق , تكريم بسيط قصد التشجيع بارك الله فيهم وفي مسعاهم  </p>
+                        <a href="takrim.html" class="btn" style="margin-top: 1rem; display: inline-block;">المزيد</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="../جمعية الإصلاح/img/حفل ترفيهي.jpg" alt="نشاط المكتب">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">31 مارس 2025</div>
+                        <h3>المكتب البلدي يقيم  حفل ترفيهي فكاهي للاطفال🤡</h3>
+                        <p>قام المكتب البلدي بالمليليحة لجمعية الإرشاد والإصلاح بمبادرة اليوم صبيحة العيد بحفل للأطفال لكي نشاركهم فرحتهم نشكر كل من كان سببا في فرحتهم ونشكر اعضاء المكتب البلدي بالمليليحة لجمعية الإرشاد والإصلاح وكل المحسنين </p>
+                        <a href="#" class="btn" style="margin-top: 1rem; display: inline-block;">المزيد</a>
+                    </div>
+                </div>
+                
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="../جمعية الإصلاح/img/قفة.jpg" alt="نشاط المكتب">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">29 مارس 2025  </div>
+                        <h3>قام اليوم 29/03/2025مكتبنا بتوزيع 30 قفة رمضانية اخرى         </h3>
+                        <p>  " قام اليوم 29/03/2025مكتبنا بتوزيع. 30قفة إضافية لتصبح 111اجمالية  فبارك الله في كل المحسنين  وجزاهم الله الف جزاء وجعلها الله في ميزان حسناتهم "</p>
+                        <a href="#" class="btn" style="margin-top: 1rem; display: inline-block;">المزيد</a>
+                    </div>
+                </div>
+            </div>
+                
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="btn">المزيد من الأخبار</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>العنوان</h4>
+                            <p>المليليحة، ولاية الجلفة، دائرة دار الشيوخ  </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>الهاتف</h4>
+                            <p><a href="tel:+966501234567">0558259234</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>البريد الإلكتروني</h4>
+                            <p><a href="mailto:info@almllih.com">guidanceandreform@gmail.com
+                            </a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>أوقات العمل</h4>
+                            <p>من الأحد إلى الخميس<br>8:00 صباحاً - 2:00 ظهراً<br>5:00 مساءً - 9:00 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>أرسل رسالة</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">الموضوع</label>
+                            <select id="subject" required>
+                                <option value="">اختر الموضوع</option>
+                                <option value="inquiry">استفسار</option>
+                                <option value="suggestion">مقترح</option>
+                                <option value="complaint">شكوى</option>
+                                <option value="donation">تبرع</option>
+                                <option value="volunteer">تطوع</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن الجمعية</h3>
+                    <p>جمعية الإصلاح والإرشاد هي جمعية خيرية إصلاحية    تهدف إلى الإصلاح  والتآخي الاجتماعي ونشر الوعي الديني والثقافي في المجتمع.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/groups/545028309528899"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عن المكتب</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#news">أخبار ونشاطات</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>مواقع تهمك</h3>
+                    <ul>
+                        <li><a href="" target="_blank">الموقع الرسمي للجمعية</a></li>
+                        <li><a href="" target="_blank">وزارة الشؤون الإسلامية</a></li>
+                        <li><a href="" target="_blank">  </a></li>
+                        <li><a href="" target="_blank">   </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; المكتب البلدي بالمليليحة - جمعية الإرشاد و الإصلاح   / 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            
+            // Here you would normally send the form data to a server
+            // For demonstration, we'll just show an alert
+            alert(`شكراً ${name} على رسالتك!\nسنقوم بالرد على بريدك ${email} في أقرب وقت بخصوص ${subject}.`);
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
